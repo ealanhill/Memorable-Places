@@ -13,6 +13,7 @@
 		F5C3A4EE1C930906006ECC0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5C3A4ED1C930906006ECC0D /* Assets.xcassets */; };
 		F5C3A4F11C930906006ECC0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5C3A4EF1C930906006ECC0D /* LaunchScreen.storyboard */; };
 		F5C3A4F91C930DFC006ECC0D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C3A4F81C930DFC006ECC0D /* MapKit.framework */; };
+		F5C5FB7C1CA1805A004B70CF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C5FB7B1CA18059004B70CF /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F5C3A4F01C930906006ECC0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5C3A4F21C930906006ECC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5C3A4F81C930DFC006ECC0D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F5C5FB7B1CA18059004B70CF /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				F5C3A4E61C930906006ECC0D /* AppDelegate.swift */,
 				F5C3A4E81C930906006ECC0D /* ViewController.swift */,
+				F5C5FB7B1CA18059004B70CF /* TableViewController.swift */,
 				F5C3A4EA1C930906006ECC0D /* Main.storyboard */,
 				F5C3A4ED1C930906006ECC0D /* Assets.xcassets */,
 				F5C3A4EF1C930906006ECC0D /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5C3A4E91C930906006ECC0D /* ViewController.swift in Sources */,
+				F5C5FB7C1CA1805A004B70CF /* TableViewController.swift in Sources */,
 				F5C3A4E71C930906006ECC0D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +292,7 @@
 				F5C3A4F71C930906006ECC0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

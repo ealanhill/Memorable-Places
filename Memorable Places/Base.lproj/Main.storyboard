@@ -34,7 +34,7 @@
         <!--Root View Controller-->
         <scene sceneID="IkP-29-UnX">
             <objects>
-                <tableViewController id="ZbE-9q-DLa" sceneMemberID="viewController">
+                <tableViewController id="ZbE-9q-DLa" customClass="TableViewController" customModule="Memorable_Places" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5JX-lb-auU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,7 +58,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="6kO-5l-nJm"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="vXe-Rw-fOK">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="IcR-hf-X8i"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="TableViewControllerSegue" id="IcR-hf-X8i"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
