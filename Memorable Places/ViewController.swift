@@ -12,8 +12,9 @@ import CoreLocation
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-    @IBOutlet var map: MKMapView!
     var locationManager = CLLocationManager()
+    var onLocationAvailable : ((location: CLLocation) -> ())?
+    @IBOutlet var map: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         // Dispose of any resources that can be recreated.
     }
 
-    /*func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let latDelta:CLLocationDegrees = 0.1
         let longDelta:CLLocationDegrees = 0.1
         
@@ -45,7 +46,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let region:MKCoordinateRegion = MKCoordinateRegionMake(center, span)
         
         self.map.setRegion(region, animated: false)
-    }*/
+    }
     
     func action(gestureRecognizer: UIGestureRecognizer) {
         print("Gesture Recognized")
@@ -63,36 +64,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         self.map.setRegion(region, animated: true)
         
-        /*CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) -> Void in
-            if(error != nil) {
-                print(error)
-            } else {
-                
-                if let placemark:CLPlacemark = CLPlacemark(placemark: placemarks![0]) {
-                    print(placemark.addressDictionary)
-                    
-                    if let locationName = placemark.addressDictionary!["Name"] as? NSString,
-                       let city = placemark.addressDictionary!["City"] as? NSString,
-                       let state = placemark.addressDictionary!["State"] as? NSString,
-                       let zip = placemark.addressDictionary!["ZIP"] as? NSString
-                    {
-                        annotation.title = "\(locationName)\n\(city), \(state) \(zip)"
-                        self.map.addAnnotation(annotation)
-                    }
-                }
-            }
-        }*/
+        self.sendLocation(CLLocation(latitude: center.latitude, longitude: center.longitude))
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "TableViewControllerSegue" {
-            let tableViewController = segue.destinationViewController as! TableViewController
-            
-            let center = self.map.centerCoordinate
-            
-            let location = CLLocation(latitude: center.latitude, longitude: center.longitude)
-            tableViewController.addLocation(location)
-        }
+    func sendLocation(location: CLLocation) {
+        self.onLocationAvailable?(location: location)
     }
 
 }

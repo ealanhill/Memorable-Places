@@ -23,6 +23,20 @@ class TableViewController: UITableViewController {
     }
     
     func addLocation(locationToAdd: CLLocation) {
+        print("Received location: \(locationToAdd)")
         locations.append(locationToAdd)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // When preparing for the segue, have viewController1 provide a closure for
+        // onDataAvailable
+        if let viewController = segue.destinationViewController as? ViewController {
+            viewController.onLocationAvailable = {[weak self]
+                (location) in
+                if let weakSelf = self {
+                    weakSelf.addLocation(location)
+                }
+            }
+        }
     }
 }
