@@ -12,6 +12,7 @@ import CoreLocation
 class TableViewController: UITableViewController {
     
     var locations = [MemorablePlace]()
+    var selectedRow = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,10 @@ class TableViewController: UITableViewController {
         
         if let locations = NSUserDefaults.standardUserDefaults().objectForKey("memorablePlaces") as? NSData {
             self.locations = NSKeyedUnarchiver.unarchiveObjectWithData(locations) as! [MemorablePlace]
+        }
+        
+        if self.locations.count == 0 {
+            locations.append(MemorablePlace(name: "Sample Memorable Place Title", address: "Sample Address", latitude: 0, longitude: 0)!)
         }
     }
     
@@ -34,6 +39,10 @@ class TableViewController: UITableViewController {
     
     func addLocation(locationToAdd: MemorablePlace) {
         print("Received location: \(locationToAdd)")
+        if self.locations.count == 1 && self.locations[0].title == "Sample Memorable Place Title" {
+            self.locations.removeAll()
+        }
+        
         if !locations.contains(locationToAdd) {
             locations.append(locationToAdd)
         }
@@ -50,6 +59,12 @@ class TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return CGFloat(integerLiteral: 90)
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        self.selectedRow = indexPath.row
+        
+        return indexPath
     }
     
     // defines contents of each individual cell
@@ -78,6 +93,11 @@ class TableViewController: UITableViewController {
                 if let weakSelf = self {
                     weakSelf.addLocation(location)
                 }
+            }
+            
+            if selectedRow != -1 {
+                print("Selected Row: \(selectedRow)")
+                viewController.addAnnotation(locations[selectedRow])
             }
         }
     }

@@ -74,6 +74,7 @@
                                 <connections>
                                     <outlet property="addressLabel" destination="dGW-QI-92h" id="a3G-CR-rxe"/>
                                     <outlet property="nameLabel" destination="4qG-h6-Qz3" id="9Wj-r9-doo"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="tgW-Y1-abs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -89,7 +90,7 @@
                                 <action selector="clearLocations:" destination="ZbE-9q-DLa" id="Emk-85-PiV"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="vXe-Rw-fOK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vXe-Rw-fOK">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="TableViewControllerSegue" id="IcR-hf-X8i"/>
                             </connections>
@@ -117,4 +118,7 @@
             <point key="canvasLocation" x="-1212" y="429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tgW-Y1-abs"/>
+    </inferredMetricsTieBreakers>
 </document>
