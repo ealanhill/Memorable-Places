@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F52721C41CA5689F007166E3 /* MemorablePlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52721C31CA5689F007166E3 /* MemorablePlaceTableViewCell.swift */; };
+		F52721C61CA56BDB007166E3 /* MemorablePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52721C51CA56BDB007166E3 /* MemorablePlace.swift */; };
 		F5C3A4E71C930906006ECC0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C3A4E61C930906006ECC0D /* AppDelegate.swift */; };
 		F5C3A4E91C930906006ECC0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C3A4E81C930906006ECC0D /* ViewController.swift */; };
 		F5C3A4EC1C930906006ECC0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5C3A4EA1C930906006ECC0D /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F52721C31CA5689F007166E3 /* MemorablePlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemorablePlaceTableViewCell.swift; sourceTree = "<group>"; };
+		F52721C51CA56BDB007166E3 /* MemorablePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemorablePlace.swift; sourceTree = "<group>"; };
 		F5C3A4E31C930906006ECC0D /* Memorable Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Memorable Places.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C3A4E61C930906006ECC0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5C3A4E81C930906006ECC0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				F5C3A4E81C930906006ECC0D /* ViewController.swift */,
 				F5C5FB7B1CA18059004B70CF /* TableViewController.swift */,
 				F5C3A4EA1C930906006ECC0D /* Main.storyboard */,
+				F52721C51CA56BDB007166E3 /* MemorablePlace.swift */,
+				F52721C31CA5689F007166E3 /* MemorablePlaceTableViewCell.swift */,
 				F5C3A4ED1C930906006ECC0D /* Assets.xcassets */,
 				F5C3A4EF1C930906006ECC0D /* LaunchScreen.storyboard */,
 				F5C3A4F21C930906006ECC0D /* Info.plist */,
@@ -142,6 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52721C61CA56BDB007166E3 /* MemorablePlace.swift in Sources */,
+				F52721C41CA5689F007166E3 /* MemorablePlaceTableViewCell.swift in Sources */,
 				F5C3A4E91C930906006ECC0D /* ViewController.swift in Sources */,
 				F5C5FB7C1CA1805A004B70CF /* TableViewController.swift in Sources */,
 				F5C3A4E71C930906006ECC0D /* AppDelegate.swift in Sources */,
