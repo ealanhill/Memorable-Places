@@ -97,7 +97,7 @@ class TableViewController: UITableViewController {
             
             if selectedRow != -1 {
                 print("Selected Row: \(selectedRow)")
-                viewController.addAnnotation(locations[selectedRow])
+                viewController.setMemorablePlace(locations[selectedRow])
             }
         }
     }

@@ -16,7 +16,7 @@ class MemorablePlace: NSObject {
     var latitude: Double
     var longitude: Double
     override var description: String {
-        return "\(title), \(address)"
+        return "\(title), \(address), \(latitude) \(longitude)"
     }
     
     // MARK: Initialization

@@ -14,10 +14,12 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 
     var locationManager = CLLocationManager()
     var onLocationAvailable : ((location: MemorablePlace) -> ())?
+    var annotation:MemorablePlace?
     @IBOutlet var map: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Map: \(map)")
         
         // set up our location manager
         locationManager.delegate = self
@@ -35,6 +37,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let uilpgr = UILongPressGestureRecognizer(target: self, action:  #selector(ViewController.longPress(_:)))
         uilpgr.minimumPressDuration = 2
         map.addGestureRecognizer(uilpgr)
+        
+        if self.annotation != nil {
+            addAnnotation(self.annotation!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,6 +106,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func addAnnotation(memorablePlace: MemorablePlace) {
+        print("Adding annotation for \(memorablePlace)")
+        print("Map: \(map)")
         let annotation: MKPointAnnotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: memorablePlace.latitude, longitude: memorablePlace.longitude)
         annotation.title = title
@@ -108,6 +116,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         self.map.setRegion(region, animated: true)
         
         self.map.addAnnotation(annotation)
+    }
+    
+    func setMemorablePlace(memorablePlace: MemorablePlace) {
+        self.annotation = memorablePlace
     }
 
 }
