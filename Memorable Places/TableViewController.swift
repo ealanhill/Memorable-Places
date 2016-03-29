@@ -48,13 +48,13 @@ class TableViewController: UITableViewController {
         }
         print("locations: \(locations)")
         
-        NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(self.locations), forKey: "memorablePlaces")
+        saveList()
     }
     
     @IBAction func clearLocations(sender: AnyObject) {
         self.locations.removeAll()
         tableView.reloadData()
-        NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(self.locations), forKey: "memorablePlaces")
+        saveList()
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -85,6 +85,10 @@ class TableViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "TableViewControllerSegue" {
+            selectedRow = -1
+        }
+        
         // When preparing for the segue, have viewController1 provide a closure for
         // onDataAvailable
         if let viewController = segue.destinationViewController as? ViewController {
@@ -100,5 +104,17 @@ class TableViewController: UITableViewController {
                 viewController.setMemorablePlace(locations[selectedRow])
             }
         }
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            locations.removeAtIndex(indexPath.row)
+            saveList()
+            tableView.reloadData()
+        }
+    }
+    
+    func saveList() {
+        NSUserDefaults.standardUserDefaults().setObject(NSKeyedArchiver.archivedDataWithRootObject(self.locations), forKey: "memorablePlaces")
     }
 }
